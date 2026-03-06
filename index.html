@@ -300,10 +300,14 @@ faders.forEach(fader => {
 <!-- Botón Volver arriba -->
 <button id="scrollToTopBtn" title="Volver arriba">↑</button>
     
-    <script>
-window.onload = () => {
+// Garantiza que al cargar o refrescar, la página empiece en la parte superior
+window.addEventListener("load", () => {
     window.scrollTo(0, 0);
-};
+});
+
+window.addEventListener("beforeunload", () => {
+    window.scrollTo(0, 0);
+});
 </script>
 
 <script>
