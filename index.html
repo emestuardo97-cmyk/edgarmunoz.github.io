@@ -282,6 +282,7 @@ footer{
 </footer>
 
 <script>
+/* Animación fade-in */
 const faders = document.querySelectorAll('.fade-in');
 const appearOptions = { threshold: 0.1 };
 const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -295,12 +296,23 @@ const appearOnScroll = new IntersectionObserver(function(entries, observer) {
 faders.forEach(fader => {
     appearOnScroll.observe(fader);
 });
-</script>
 
-<!-- Botón Volver arriba -->
-<button id="scrollToTopBtn" title="Volver arriba">↑</button>
-    
-// Garantiza que al cargar o refrescar, la página empiece en la parte superior
+/* Botón volver arriba */
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+});
+
+scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+/* Asegura que la página siempre inicie en la parte superior */
 window.addEventListener("load", () => {
     window.scrollTo(0, 0);
 });
