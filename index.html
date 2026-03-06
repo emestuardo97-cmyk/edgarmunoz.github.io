@@ -112,6 +112,18 @@ padding:20px;
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
+
+/* Animación de aparición al hacer scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 </style>
 
 </head>
@@ -149,7 +161,7 @@ style="border-radius:50%; margin-top:15px; border:5px solid white;">
 
 <div class="container">
 
-<section id="perfil">
+<section id="perfil" class="fade-in">
 
 <h2>Perfil Profesional</h2>
 
